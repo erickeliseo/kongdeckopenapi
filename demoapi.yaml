@@ -13,4 +13,4 @@ spec:
   lifecycle: development
   owner: alan@columbia.edu
   definition:
-    $text: https://gitlab.cc.columbia.edu/cuit-ent-arch/django-training/raw/master/docs/schemas/openapi.yaml
+    https://gitlab.cc.columbia.edu/cuit-ent-arch/django-training/raw/master/docs/schemas/openapi.yaml
