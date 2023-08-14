@@ -9,15 +9,74 @@ spec:
   owner: artist-relations-team
   system: artist-engagement-portal
   definition: |
-    openapi: "3.0.0"
-    info:
-      version: 1.0.0
-      title: Artist API
-      license:
-        name: MIT
+    openapi: 3.0.0
+      info:
+        version: "1.0.0"
+        title: "Tasks API"
+        description: "API to manage and maintain tasks for users."
+        termsOfService: "http://api.example.com/terms/"
+        contact:
+          name: "API Support"
+          url: "http://www.example.com/support"
+          email: "support@example.com"
+        license:
+          name: "Apache 2.0"
+          url: "https://www.apache.org/licenses/LICENSE-2.0.html"
+
     servers:
-      - url: http://artist.spotify.net/v1
+      - url: "https://apis.example.com"
+        description: "Main Production Server"
+
     paths:
-      /artists:
+      /tasks/{taskId}:
         get:
-          summary: List all artists
+          summary: "Retrieve details of a specific task"
+          description: "Returns the details of a task identified by its ID."
+          parameters:
+            - name: "taskId"
+              in: "path"
+              required: true
+              description: "Unique identifier of the task."
+              schema:
+                type: "string"
+                format: "uuid"
+          responses:
+            '200':
+              description: "Successful response with task details."
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Task"
+            '404':
+              description: "Task not found."
+          security:
+            - bearerAuth: []
+
+    components:
+      schemas:
+        Task:
+          type: "object"
+          required:
+            - id
+            - title
+          properties:
+            id:
+              type: "string"
+              format: "uuid"
+              description: "Unique identifier for the task."
+              example: "d290f1ee-6c54-4b01-90e6-d701748f0851"
+            title:
+              type: "string"
+              description: "Title of the task."
+              example: "Read a book"
+            description:
+              type: "string"
+              description: "Detailed description of the task."
+              example: "Read 'The Great Gatsby' by F. Scott Fitzgerald."
+
+    securitySchemes:
+      bearerAuth:
+        type: "http"
+        scheme: "bearer"
+        bearerFormat: "JWT"
+        description: "Enter JWT Bearer token **_`[TOKEN]`_** into field below."
