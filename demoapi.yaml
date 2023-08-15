@@ -1,13 +1,13 @@
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: artist-api
+  name: API demostracion
   description: Retrieve artist details
 spec:
   type: openapi
   lifecycle: production
-  owner: artist-relations-team
-  system: artist-engagement-portal
+  owner: itm-team
+  system: itm-support-portal
   definition: |
     openapi: 3.0.0
     info:
@@ -15,7 +15,7 @@ spec:
       version: 1.0.0
     servers:
       - url: "http://mock-svc.apiopskong.svc:8080"
-        description: "Integration API Server for Tigo"
+        description: "Integration API Server for ITM"
     paths:
       /users:
         get:
