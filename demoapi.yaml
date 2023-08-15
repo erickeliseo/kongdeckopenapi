@@ -16,7 +16,7 @@ spec:
     servers:
       - url: "http://mock-svc.apiopskong.svc:8080"
         description: "Integration API Server for ITM"
-      - url: "https://apis-integraciones.tigo.com.gt/users"
+      - url: "https://apis-integraciones.tigo.com.gt"
         description: "Integration API Server for ITM"
     paths:
       /users:
