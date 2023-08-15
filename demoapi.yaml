@@ -18,6 +18,8 @@ spec:
         description: "Integration API Server for ITM"
       - url: "https://apis-integraciones.tigo.com.gt"
         description: "Integration API Server for ITM"
+      - url: "http://apis-integraciones.tigo.com.gt"
+        description: "Integration API Server for ITM"
     paths:
       /users:
         get:
